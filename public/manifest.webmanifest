@@ -1,0 +1,9 @@
+{
+  "name": "Escolha 2026",
+  "short_name": "Escolha 2026",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#0a2034",
+  "icons": []
+}

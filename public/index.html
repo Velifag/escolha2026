@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b2035">
+  <meta name="description" content="Guia eleitoral neutro para consultar candidaturas de 2026 e montar sua cola eleitoral.">
+  <title>Escolha 2026</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="mark">26</div>
+        <div><strong>Escolha 2026</strong><span>Guia eleitoral neutro</span></div>
+      </div>
+      <button id="installBtn" class="btn ghost" hidden>Instalar app</button>
+    </div>
+
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">ELEIÇÕES 2026</span>
+        <h1>Consulte candidatos.<br>Organize suas escolhas.</h1>
+        <p>Dados oficiais do TSE, sem ranking, recomendação ou preferência política.</p>
+      </div>
+      <div class="hero-card">
+        <small>Minha seleção</small>
+        <div><span>Presidente</span><b id="miniP">—</b></div>
+        <div><span>Governador</span><b id="miniG">—</b></div>
+        <div><span>Senador 1</span><b id="miniS1">—</b></div>
+        <div><span>Senador 2</span><b id="miniS2">—</b></div>
+        <div><span>Dep. Federal</span><b id="miniF">—</b></div>
+        <div><span>Dep. Estadual</span><b id="miniE">—</b></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap panel" id="explorar">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow blue">EXPLORAR CANDIDATURAS</span>
+          <h2>Faça sua consulta</h2>
+        </div>
+        <div id="syncBadge" class="status">Carregando base…</div>
+      </div>
+
+      <div class="filters">
+        <label>Estado<select id="uf"></select></label>
+        <label>Cargo<select id="cargo">
+          <option value="PRESIDENTE">Presidente</option>
+          <option value="GOVERNADOR">Governador</option>
+          <option value="SENADOR">Senador</option>
+          <option value="DEPUTADO FEDERAL">Deputado Federal</option>
+          <option value="DEPUTADO ESTADUAL">Deputado Estadual</option>
+          <option value="DEPUTADO DISTRITAL">Deputado Distrital</option>
+        </select></label>
+        <label>Pesquisar<input id="q" type="search" placeholder="Nome, número ou partido"></label>
+      </div>
+
+      <div id="meta" class="meta"></div>
+      <div class="order-note">
+        <strong>Ordem oficial na urna:</strong>
+        Deputado Federal → Deputado Estadual/Distrital → Senador 1 → Senador 2 → Governador → Presidente
+      </div>
+      <div id="cards" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section class="selection" id="selection">
+      <div class="wrap">
+        <div class="section-head inverse">
+          <div><span class="eyebrow">MINHA SELEÇÃO</span><h2>Cola eleitoral</h2></div>
+          <button id="clearBtn" class="btn ghost">Limpar</button>
+        </div>
+        <div class="ballot">
+          <div class="ballot-top"><b id="ballotUF">PR</b><span>ELEIÇÕES 2026</span></div>
+          <div class="ballot-grid">
+            <article class="vote-card"><span class="vote-step">1</span><small>Deputado Federal</small><strong id="f1">Não selecionado</strong><span id="f1m">—</span></article>
+            <article class="vote-card"><span class="vote-step">2</span><small>Deputado Estadual/Distrital</small><strong id="e1">Não selecionado</strong><span id="e1m">—</span></article>
+            <article class="vote-card"><span class="vote-step">3</span><small>Senador 1</small><strong id="s1">Não selecionado</strong><span id="s1m">—</span></article>
+            <article class="vote-card"><span class="vote-step">4</span><small>Senador 2</small><strong id="s2">Não selecionado</strong><span id="s2m">—</span></article>
+            <article class="vote-card"><span class="vote-step">5</span><small>Governador</small><strong id="g1">Não selecionado</strong><span id="g1m">—</span></article>
+            <article class="vote-card"><span class="vote-step">6</span><small>Presidente</small><strong id="p1">Não selecionado</strong><span id="p1m">—</span></article>
+          </div>
+          <div class="actions">
+            <button id="printBtn" class="btn primary">Imprimir / Salvar PDF</button>
+            <button id="shareBtn" class="btn dark">Compartilhar seleção</button>
+          </div>
+          <p class="privacy">As escolhas ficam armazenadas somente neste dispositivo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-dock" aria-label="Navegação rápida">
+    <button type="button" data-jump="explorar">Candidatos</button>
+    <button type="button" data-jump="selection">Minha cola</button>
+    <button type="button" id="mobileShare">Compartilhar</button>
+  </nav>
+
+  <dialog id="detail">
+    <button id="closeDetail" class="close" aria-label="Fechar">×</button>
+    <div id="detailBody"></div>
+  </dialog>
+
+  <footer class="wrap footer">
+    <p>Projeto informativo e apartidário. Fonte: Tribunal Superior Eleitoral.</p>
+    <a href="https://dadosabertos.tse.jus.br/pt_BR/dataset/candidatos-2026" target="_blank" rel="noopener">Dados Abertos TSE ↗</a>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

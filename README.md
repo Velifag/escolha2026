@@ -38,3 +38,6 @@ https://dadosabertos.tse.jus.br/pt_BR/dataset/candidatos-2026
 4. Senador 2
 5. Governador
 6. Presidente
+
+
+> GitHub Pages ativado em 03/10/2026. Publicação automatizada via GitHub Actions.
